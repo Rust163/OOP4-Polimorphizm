@@ -13,7 +13,12 @@ public class Main {
                 7.2);
         System.out.println(ford.toString());
         ford.startMoving();
+        ford.pitStop();
+        ford.bestLapTime();
+        ford.maximumSpeed();
+
         borderLine2();
+
         Car dodge = new Car(
                 "Dodge",
                 "Charger",
@@ -33,7 +38,7 @@ public class Main {
                 3.5);
         System.out.println(nissan.toString());
 
-borderLine();
+        borderLine();
         Bus man1 = new Bus(
                 "MAN",
                 "Lion`s   Coach",
@@ -51,13 +56,14 @@ borderLine();
                 "MAN Lion`s City",
                 10.5);
         System.out.println(man3.toString());
+
         borderLine2();
         Bus man4 = new Bus(
                 "MAN",
                 "MAN Lion`s City E",
                 11.0);
         System.out.println(man4.toString());
-borderLine();
+        borderLine();
         Truck kenworth = new Truck(
                 "Kenwort",
                 "W900L",
@@ -81,7 +87,8 @@ borderLine();
                 "362",
                 14.0);
         System.out.println(peterbilt.toString());
-borderLine();
+        peterbilt.maximumSpeed();
+        borderLine();
         DriverB driverFord = new DriverB(
                 "Сергей",
                 "Васильевич",
@@ -113,7 +120,7 @@ borderLine();
                 "B",
                 12);
         System.out.println(driverNissan.toString());
-borderLine();
+        borderLine();
         DriverD driverMan1 = new DriverD(
                 "Андрей",
                 "Васильевич",
@@ -145,7 +152,7 @@ borderLine();
                 "D",
                 1);
         System.out.println(driverMan4.toString());
-borderLine();
+        borderLine();
         DriverC driverKenwort = new DriverC(
                 "Доминик",
                 "Васильевич",

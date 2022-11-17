@@ -1,6 +1,12 @@
 package transport;
 
-public class Bus extends Transport {
+import java.util.concurrent.ThreadLocalRandom;
+
+public class Bus extends Transport implements Competing{
+
+    public static final String PIT_STOP = "Заехать на пит-стоп, сменить резину на дождевую.";
+    public static final String BEAST_LAP_TIME = "Лучшее время круга!";
+    public static final String MAXIMUM_SPEED = "Максимальная скорость за гонку 130 км/ч";
     public Bus(String brand, String model, double engineVol) {
         super(brand, model, engineVol);
     }
@@ -24,5 +30,21 @@ public class Bus extends Transport {
         super.stopMoving();
     }
 
+    @Override
+    public void pitStop() {
+        System.out.printf("Автомобиль %s %s Пит-Стоп! ",
+                this.getBrand(),
+                this.getModel());
+    }
+
+    @Override
+    public void bestLapTime() {
+        System.out.println("Лучшее время круга: " + ThreadLocalRandom.current().nextInt(25, 60) + "сек.");
+    }
+
+    @Override
+    public void maximumSpeed() {
+        System.out.println("Максимальная скорость в заезде: " + ThreadLocalRandom.current().nextInt(150, 400) + " км/ч");
+    }
 
 }
