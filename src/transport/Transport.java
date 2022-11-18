@@ -1,8 +1,10 @@
 package transport;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public abstract class Transport {
-    protected String brand;
-    protected String model;
+    protected static String brand;
+    protected static String model;
     protected double engineVol;
 
     public Transport(String brand, String model, double engineVol) {
@@ -11,7 +13,7 @@ public abstract class Transport {
         this.engineVol = engineVol;
     }
 
-    public String getBrand() {
+    public static String getBrand() {
         return brand;
     }
 
@@ -19,7 +21,7 @@ public abstract class Transport {
         this.brand = brand;
     }
 
-    public String getModel() {
+    public static String getModel() {
         return model;
     }
 
@@ -36,12 +38,30 @@ public abstract class Transport {
     }
 
     public void startMoving() {
+        System.out.println(brand + " начал движение");
 
     }
+
 
     public void stopMoving() {
+        System.out.println(brand + " закончил движение");
 
     }
 
 
+    public void pitStop() {
+        System.out.printf("Автомобиль %s %s Пит-Стоп! ",
+                this.getBrand(),
+                this.getModel());
+    }
+
+
+    public void bestLapTime() {
+        System.out.println("Лучшее время круга: " + ThreadLocalRandom.current().nextInt(25, 60) + "сек.");
+    }
+
+
+    public void maximumSpeed() {
+        System.out.println("Максимальная скорость в заезде: " + ThreadLocalRandom.current().nextInt(150, 400) + " км/ч");
+    }
 }

@@ -1,6 +1,8 @@
 package Drivers;
 
-public class DriverB extends Driver{
+import transport.Car;
+
+public class DriverB extends Driver<Car>{
     public DriverB(String name, String patronymic, String lastName, String driverLicense, int experience) {
         super(name, patronymic, lastName, driverLicense, experience);
     }
@@ -14,4 +16,6 @@ public class DriverB extends Driver{
                 ". Опыт вождения: " + experience +
                 " лет.";
     }
+
+
 }

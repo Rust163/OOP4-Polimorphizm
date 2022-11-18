@@ -1,11 +1,19 @@
 package Drivers;
 
-public class Driver {
-    protected String name;
+import transport.Car;
+import transport.Transport;
+
+public class Driver<T extends Transport> {
+    protected static String name;
     protected String lastName;
     protected String patronymic;
     protected String driverLicense;
     protected int experience;
+    public T car;
+
+    public Driver (T car) {
+        this.car = car;
+    }
 
     public Driver(String name, String patronymic, String lastName, String driverLicense, int experience) {
         if(name == null || name.isEmpty() || name.isBlank()){
@@ -27,9 +35,10 @@ public class Driver {
         if(experience <= 3 || experience >= 60) {
             System.out.println("К сожалению вы не годитесь в гонщики!");
         } this.experience = experience;
+        this.car = car;
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
@@ -68,4 +77,25 @@ public class Driver {
     public void setExperience(int experience) {
         this.experience = experience;
     }
+
+
+    public void startDriving() {
+        System.out.printf("Водитель " + getName() + " стартовал");
+        this.car.startMoving();
+    }
+
+    public void finishDriving() {
+        System.out.printf("Водитель " + getName() + " финишировал");
+        this.car.stopMoving();
+    }
+
+    public void refill() {
+        System.out.println("Водитель "+ getName() + " заправляет " + car.getBrand() + car.getModel());
+    }
+
+
+    public void race() {
+        System.out.println("Водитель " + getName() + " управляет автомобилем " + car.getBrand() + car.getModel());
+    }
 }
+

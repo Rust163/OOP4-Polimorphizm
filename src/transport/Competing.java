@@ -8,4 +8,5 @@ public interface Competing {
     void bestLapTime();
 
     void maximumSpeed();
+
 }

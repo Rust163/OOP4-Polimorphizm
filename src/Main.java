@@ -96,6 +96,8 @@ public class Main {
                 "B",
                 25);
         System.out.println(driverFord.toString());
+        driverFord.race();
+        driverFord.refill();
         borderLine2();
         DriverB driverDodge = new DriverB(
                 "Николай",
@@ -104,6 +106,8 @@ public class Main {
                 "B",
                 15);
         System.out.println(driverDodge.toString());
+        driverFord.race();
+        driverFord.refill();
         borderLine2();
         DriverB driverPlimuth = new DriverB(
                 "Петр",
@@ -112,6 +116,8 @@ public class Main {
                 "B",
                 13);
         System.out.println(driverPlimuth.toString());
+        driverFord.race();
+        driverFord.refill();
         borderLine2();
         DriverB driverNissan = new DriverB(
                 "Василий",
@@ -120,6 +126,8 @@ public class Main {
                 "B",
                 12);
         System.out.println(driverNissan.toString());
+        driverFord.race();
+        driverFord.refill();
         borderLine();
         DriverD driverMan1 = new DriverD(
                 "Андрей",
@@ -128,6 +136,8 @@ public class Main {
                 "D",
                 14);
         System.out.println(driverMan1.toString());
+        driverFord.race();
+        driverFord.refill();
         borderLine2();
         DriverD driverMan2 = new DriverD(
                 "Денис",
@@ -136,6 +146,8 @@ public class Main {
                 "D",
                 8);
         System.out.println(driverMan2.toString());
+        driverFord.race();
+        driverFord.refill();
         borderLine2();
         DriverD driverMan3 = new DriverD(
                 "Степан",
@@ -144,6 +156,8 @@ public class Main {
                 "D",
                 61);
         System.out.println(driverMan3.toString());
+        driverFord.race();
+        driverFord.refill();
         borderLine2();
         DriverD driverMan4 = new DriverD(
                 "Алексей",
@@ -152,6 +166,8 @@ public class Main {
                 "D",
                 1);
         System.out.println(driverMan4.toString());
+        driverFord.race();
+        driverFord.refill();
         borderLine();
         DriverC driverKenwort = new DriverC(
                 "Доминик",
@@ -160,6 +176,8 @@ public class Main {
                 "C",
                 12);
         System.out.println(driverKenwort.toString());
+        driverFord.race();
+        driverFord.refill();
         borderLine2();
         DriverC driverInternational = new DriverC(
                 "Брайан",
@@ -168,6 +186,8 @@ public class Main {
                 "C",
                 30);
         System.out.println(driverInternational.toString());
+        driverFord.race();
+        driverFord.refill();
         borderLine2();
         DriverC driverMarmon = new DriverC(
                 "Слава",
@@ -176,6 +196,8 @@ public class Main {
                 "C",
                 23);
         System.out.println(driverMarmon.toString());
+        driverFord.race();
+        driverFord.refill();
         borderLine2();
         DriverC driverPeterbilt = new DriverC(
                 "Константин",
@@ -184,7 +206,13 @@ public class Main {
                 "C",
                 11);
         System.out.println(driverPeterbilt.toString());
+        driverFord.race();
+        driverFord.refill();
+
+
     }
+
+
 
     public static void borderLine() {
         System.out.println("==============================================================================================================================================================================================");
@@ -193,4 +221,6 @@ public class Main {
     public static void borderLine2() {
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
+
+
 }
