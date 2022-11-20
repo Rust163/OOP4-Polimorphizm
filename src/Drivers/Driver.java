@@ -1,10 +1,12 @@
 package Drivers;
 
+import transport.Bus;
 import transport.Car;
 import transport.Transport;
+import transport.Truck;
 
 public class Driver<T extends Transport> {
-    protected static String name;
+    protected String name;
     protected String lastName;
     protected String patronymic;
     protected String driverLicense;
@@ -38,7 +40,7 @@ public class Driver<T extends Transport> {
         this.car = car;
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
@@ -80,22 +82,23 @@ public class Driver<T extends Transport> {
 
 
     public void startDriving() {
-        System.out.printf("Водитель " + getName() + " стартовал");
-        this.car.startMoving();
+        System.out.printf("Водитель " + getName() + " стартовал.");
     }
 
     public void finishDriving() {
-        System.out.printf("Водитель " + getName() + " финишировал");
-        this.car.stopMoving();
+        System.out.printf("Водитель " + getName() + " финишировал.");
     }
 
     public void refill() {
-        System.out.println("Водитель "+ getName() + " заправляет " + car.getBrand() + car.getModel());
+        System.out.println("Водитель "+ getName() + " заправляет машину.");
     }
 
 
-    public void race() {
-        System.out.println("Водитель " + getName() + " управляет автомобилем " + car.getBrand() + car.getModel());
+    public void race(Transport transport) {
+        System.out.println("Водитель " + getName() + " управляет автомобилем " + transport.getBrand() + transport.getModel());
+        transport.printType();
     }
+
+
 }
 

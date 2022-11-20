@@ -3,8 +3,8 @@ package transport;
 import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Transport {
-    protected static String brand;
-    protected static String model;
+    protected String brand;
+    protected String model;
     protected double engineVol;
 
     public Transport(String brand, String model, double engineVol) {
@@ -13,7 +13,7 @@ public abstract class Transport {
         this.engineVol = engineVol;
     }
 
-    public static String getBrand() {
+    public String getBrand() {
         return brand;
     }
 
@@ -21,7 +21,7 @@ public abstract class Transport {
         this.brand = brand;
     }
 
-    public static String getModel() {
+    public String getModel() {
         return model;
     }
 
@@ -64,4 +64,7 @@ public abstract class Transport {
     public void maximumSpeed() {
         System.out.println("Максимальная скорость в заезде: " + ThreadLocalRandom.current().nextInt(150, 400) + " км/ч");
     }
+
+    public abstract void printType();
+
 }

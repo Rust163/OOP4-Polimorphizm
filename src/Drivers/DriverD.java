@@ -12,7 +12,7 @@ public class DriverD extends Driver<Bus>{
         return "Водитель категории D. Имя: " + name +
                 ". Фамилия: " + lastName +
                 ". Отчество: " + patronymic +
-                "Водительская лицензия. Категория: " + driverLicense +
+                ". Водительская лицензия. Категория: " + driverLicense +
                 ". Опыт вождения: " + experience +
                 " лет.";
     }

@@ -1,16 +1,15 @@
 import Drivers.DriverB;
 import Drivers.DriverC;
 import Drivers.DriverD;
-import transport.Bus;
-import transport.Car;
-import transport.Truck;
+import transport.*;
 
 public class Main {
     public static void main(String[] args) {
         Car ford = new Car(
                 "Ford",
                 "Mustang GT500",
-                7.2);
+                7.2,
+                TypeOfBody.COUPE);
         System.out.println(ford.toString());
         ford.startMoving();
         ford.pitStop();
@@ -22,71 +21,84 @@ public class Main {
         Car dodge = new Car(
                 "Dodge",
                 "Charger",
-                7.2);
+                7.2,
+                TypeOfBody.COUPE);
         System.out.println(dodge.toString());
         dodge.stopMoving();
         borderLine2();
         Car plimuth = new Car(
                 "Plimuth",
                 "Barracuda",
-                8.4);
+                8.4,
+                TypeOfBody.COUPE);
         System.out.println(plimuth.toString());
         borderLine2();
         Car nissan = new Car(
                 "Nissan",
                 "Skyline R34 GTR",
-                3.5);
+                3.5,
+                TypeOfBody.COUPE);
         System.out.println(nissan.toString());
 
         borderLine();
         Bus man1 = new Bus(
                 "MAN",
                 "Lion`s   Coach",
-                10.2);
+                10.2,
+                PassengerCapacity.SMALL);
         System.out.println(man1.toString());
         borderLine2();
         Bus man2 = new Bus(
                 "MAN",
                 "Lion`s Intercity",
-                11.2);
+                11.2,
+                PassengerCapacity.AVERAGE);
         System.out.println(man2.toString());
         borderLine2();
         Bus man3 = new Bus(
                 "MAN",
                 "MAN Lion`s City",
-                10.5);
+                10.5, PassengerCapacity.AVERAGE);
         System.out.println(man3.toString());
+        man3.printType();
 
         borderLine2();
         Bus man4 = new Bus(
                 "MAN",
                 "MAN Lion`s City E",
-                11.0);
+                11.0,
+                PassengerCapacity.ESPECIALLY_BIG);
         System.out.println(man4.toString());
         borderLine();
         Truck kenworth = new Truck(
                 "Kenwort",
                 "W900L",
-                15.0);
+                15.0,
+                LoadCapacity.N3);
         System.out.println(kenworth.toString());
         borderLine2();
         Truck international = new Truck(
                 "International",
                 "9600",
-                15.2);
+                15.2,
+                LoadCapacity.N3);
         System.out.println(international.toString());
         borderLine2();
         Truck marmon = new Truck(
                 "Marmon",
                 "CHDT-BC",
-                14.5);
+                14.5,
+                LoadCapacity.N2);
         System.out.println(marmon.toString());
         borderLine2();
         Truck peterbilt = new Truck(
                 "Peterbilt",
                 "362",
-                14.0);
+                14.0,
+                LoadCapacity.N1);
         System.out.println(peterbilt.toString());
+
+
         peterbilt.maximumSpeed();
         borderLine();
         DriverB driverFord = new DriverB(
@@ -94,40 +106,38 @@ public class Main {
                 "Васильевич",
                 "Торрето",
                 "B",
-                25);
+                25,ford);
         System.out.println(driverFord.toString());
-        driverFord.race();
-        driverFord.refill();
+        driverFord.race(ford);
         borderLine2();
         DriverB driverDodge = new DriverB(
                 "Николай",
                 "Петрович",
                 "Бензинович",
                 "B",
-                15);
+                15, dodge);
         System.out.println(driverDodge.toString());
-        driverFord.race();
-        driverFord.refill();
+
         borderLine2();
         DriverB driverPlimuth = new DriverB(
                 "Петр",
                 "Сергеевич",
                 "Коробкин",
                 "B",
-                13);
+                13, plimuth);
         System.out.println(driverPlimuth.toString());
-        driverFord.race();
-        driverFord.refill();
+
+
         borderLine2();
         DriverB driverNissan = new DriverB(
                 "Василий",
                 "Николаевич",
                 "Глушакович",
                 "B",
-                12);
+                12, nissan);
         System.out.println(driverNissan.toString());
-        driverFord.race();
-        driverFord.refill();
+        driverNissan.race(nissan);
+
         borderLine();
         DriverD driverMan1 = new DriverD(
                 "Андрей",
@@ -136,8 +146,7 @@ public class Main {
                 "D",
                 14);
         System.out.println(driverMan1.toString());
-        driverFord.race();
-        driverFord.refill();
+
         borderLine2();
         DriverD driverMan2 = new DriverD(
                 "Денис",
@@ -146,18 +155,16 @@ public class Main {
                 "D",
                 8);
         System.out.println(driverMan2.toString());
-        driverFord.race();
-        driverFord.refill();
+
         borderLine2();
         DriverD driverMan3 = new DriverD(
                 "Степан",
                 "Сергеевич",
                 "Коробкин",
                 "D",
-                61);
+                55);
         System.out.println(driverMan3.toString());
-        driverFord.race();
-        driverFord.refill();
+
         borderLine2();
         DriverD driverMan4 = new DriverD(
                 "Алексей",
@@ -166,8 +173,7 @@ public class Main {
                 "D",
                 1);
         System.out.println(driverMan4.toString());
-        driverFord.race();
-        driverFord.refill();
+
         borderLine();
         DriverC driverKenwort = new DriverC(
                 "Доминик",
@@ -176,8 +182,7 @@ public class Main {
                 "C",
                 12);
         System.out.println(driverKenwort.toString());
-        driverFord.race();
-        driverFord.refill();
+
         borderLine2();
         DriverC driverInternational = new DriverC(
                 "Брайан",
@@ -186,8 +191,8 @@ public class Main {
                 "C",
                 30);
         System.out.println(driverInternational.toString());
-        driverFord.race();
-        driverFord.refill();
+
+
         borderLine2();
         DriverC driverMarmon = new DriverC(
                 "Слава",
@@ -196,8 +201,7 @@ public class Main {
                 "C",
                 23);
         System.out.println(driverMarmon.toString());
-        driverFord.race();
-        driverFord.refill();
+
         borderLine2();
         DriverC driverPeterbilt = new DriverC(
                 "Константин",
@@ -206,8 +210,8 @@ public class Main {
                 "C",
                 11);
         System.out.println(driverPeterbilt.toString());
-        driverFord.race();
-        driverFord.refill();
+       driverPeterbilt.startDriving();
+       driverPeterbilt.refill();
 
 
     }
@@ -221,6 +225,8 @@ public class Main {
     public static void borderLine2() {
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
+
+
 
 
 }

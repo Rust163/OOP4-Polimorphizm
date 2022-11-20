@@ -1,8 +1,21 @@
 package transport;
-public class Car extends Transport{
+public class Car extends Transport implements Competing{
 
-    public Car(String brand, String model, double engineVol) {
+    private TypeOfBody typeOfBody;
+
+
+
+    public Car(String brand, String model, double engineVol, TypeOfBody typeOfBody) {
         super(brand, model, engineVol);
+        this.typeOfBody = typeOfBody;
+    }
+
+    public TypeOfBody getTypeOfBody() {
+        return typeOfBody;
+    }
+
+    public void setTypeOfBody(TypeOfBody typeOfBody) {
+        this.typeOfBody = typeOfBody;
     }
 
     @Override
@@ -10,5 +23,14 @@ public class Car extends Transport{
         return "Легковой гоночный класс. Бренд: " + brand +
                 ". Модель: " + model +
                 ". Объем двигателя " + engineVol + " л.";
+    }
+
+
+    public void printType() {
+        if(typeOfBody == null){
+            System.out.println("Не указанно значение типа кузова!");
+        } else {
+            System.out.println("Тип кузова: " + typeOfBody);
+        }
     }
 }
