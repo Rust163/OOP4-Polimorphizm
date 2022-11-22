@@ -30,9 +30,7 @@ public class Driver<T extends Transport> {
             lastName = "Не указано!";
         } this.lastName = lastName;
 
-        if(driverLicense == null || driverLicense.isEmpty() || driverLicense.isBlank()){
-            driverLicense = "Лицензия отсутствует!";
-        } this.driverLicense = driverLicense;
+         this.driverLicense = driverLicense;
 
         if(experience <= 3 || experience >= 60) {
             System.out.println("К сожалению вы не годитесь в гонщики!");
@@ -69,6 +67,9 @@ public class Driver<T extends Transport> {
     }
 
     public void setDriverLicense(String driverLicense) {
+        if(driverLicense == null) {
+            throw new  IllegalArgumentException("Не указанна категория прав!");
+        }
         this.driverLicense = driverLicense;
     }
 

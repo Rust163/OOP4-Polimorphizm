@@ -31,4 +31,15 @@ public class Truck extends Transport implements Competing{
             System.out.println("Тип грузоподъемности: " + from + before);
         }
     }
+
+    @Override
+    public boolean passDiagnostics() {
+        int diagnostics = 1;
+        if(diagnostics == 1) {
+            System.out.println("Нет необходимости проходить диагностику.");
+            return true;
+        }
+        System.out.println("Необходимо пройти диагностику!");
+        return false;
+    }
 }

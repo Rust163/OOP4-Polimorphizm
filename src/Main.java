@@ -32,6 +32,7 @@ public class Main {
                 8.4,
                 TypeOfBody.COUPE);
         System.out.println(plimuth.toString());
+        plimuth.passDiagnostics();
         borderLine2();
         Car nissan = new Car(
                 "Nissan",
@@ -71,7 +72,7 @@ public class Main {
         System.out.println(man4.toString());
         borderLine();
         Truck kenworth = new Truck(
-                "Kenwort",
+                "Kenworth",
                 "W900L",
                 15.0,
                 LoadCapacity.N3);
@@ -89,6 +90,7 @@ public class Main {
                 "CHDT-BC",
                 14.5,
                 LoadCapacity.N2);
+        marmon.passDiagnostics();
         System.out.println(marmon.toString());
         borderLine2();
         Truck peterbilt = new Truck(
@@ -175,13 +177,13 @@ public class Main {
         System.out.println(driverMan4.toString());
 
         borderLine();
-        DriverC driverKenwort = new DriverC(
+        DriverC driverKenworth = new DriverC(
                 "Доминик",
                 "Васильевич",
                 "Торрето",
                 "C",
                 12);
-        System.out.println(driverKenwort.toString());
+        System.out.println(driverKenworth.toString());
 
         borderLine2();
         DriverC driverInternational = new DriverC(
@@ -213,7 +215,7 @@ public class Main {
        driverPeterbilt.startDriving();
        driverPeterbilt.refill();
 
-
+        passDiagnostics(ford, dodge, plimuth, nissan, man1, man2, man3, man4, kenworth, international, marmon, peterbilt);
     }
 
 
@@ -228,5 +230,20 @@ public class Main {
 
 
 
+    private static void passDiagnostics(Transport... transports) {
+        for (Transport transport : transports) {
+            passDiagnosticsTransport(transport);
+        }
+    }
 
+    private static void passDiagnosticsTransport(Transport transport) {
+        try {
+            if(!transport.passDiagnostics()) {
+                throw new RuntimeException("Автомобил " + transport.getBrand() + " " + transport.getModel() + " диагностику не прошел!");
+            }
+
+        }catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
