@@ -1,13 +1,22 @@
 package transport;
 
+import Drivers.Driver;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Transport {
     protected String brand;
     protected String model;
     protected double engineVol;
+    private final List<Driver<?>> drivers = new ArrayList<>();
+    private final List<Mechanik<?>> mechaniks = new ArrayList<>();
+    private final List<Sponsor> sponsors = new ArrayList<>();
 
     public Transport(String brand, String model, double engineVol) {
+
+
         this.brand = brand;
         this.model = model;
         this.engineVol = engineVol;
@@ -68,5 +77,22 @@ public abstract class Transport {
     public abstract void printType();
 
     public abstract boolean passDiagnostics();
+
+    public void addDriver(Driver<?> driver) {
+        drivers.add(driver);
+        System.out.println(driver + " управляетм автомобилем " + getBrand() + " " + getModel());
+    }
+
+    public void  addMechanic(Mechanik<?> mechanik) {
+        mechaniks.add(mechanik);
+        System.out.println("Механик обслуживающий машину " + mechanik.fullName + " из компании " + mechanik.company);
+    }
+
+    public void  addSponsor(Sponsor sponsor) {
+        sponsors.add(sponsor);
+        System.out.println("Спонсор " + sponsor.sponsorName + " проспонсировал гонку в размере " + sponsor.amountOfSupport + " руб.");
+    }
+
+    public abstract void carRepair();
 
 }

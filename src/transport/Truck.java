@@ -42,4 +42,9 @@ public class Truck extends Transport implements Competing{
         System.out.println("Необходимо пройти диагностику!");
         return false;
     }
+
+    @Override
+    public void carRepair() {
+        System.out.println("Грузовик " + getBrand()  + " " + getModel() + " полностью отремонтирован и готов к гонке.");
+    }
 }
