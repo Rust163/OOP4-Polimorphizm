@@ -10,6 +10,7 @@ public class Car extends Transport implements Competing{
         this.typeOfBody = typeOfBody;
     }
 
+
     public TypeOfBody getTypeOfBody() {
         return typeOfBody;
     }
@@ -46,11 +47,21 @@ public class Car extends Transport implements Competing{
         }
     }
 
+    public boolean checkDiagnostic() {
+        return Math.random() > 0.7;
+    }
+
     @Override
     public void carRepair() {
         System.out.println("Машина " + getBrand()  + " " + getModel() + " полностью отремонтирована и готова к гонке.");
     }
-
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car that = (Car) o;
+        return brand.equals(that.brand);
+    }
 
 }
 

@@ -3,10 +3,13 @@ package transport;
 import Drivers.Driver;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Transport {
+    public boolean getBrand;
     protected String brand;
     protected String model;
     protected double engineVol;
@@ -21,6 +24,8 @@ public abstract class Transport {
         this.model = model;
         this.engineVol = engineVol;
     }
+
+
 
     public String getBrand() {
         return brand;
@@ -76,7 +81,6 @@ public abstract class Transport {
 
     public abstract void printType();
 
-    public abstract boolean passDiagnostics();
 
     public void addDriver(Driver<?> driver) {
         drivers.add(driver);
@@ -93,6 +97,23 @@ public abstract class Transport {
         System.out.println("Спонсор " + sponsor.sponsorName + " проспонсировал гонку в размере " + sponsor.amountOfSupport + " руб.");
     }
 
+    public abstract boolean passDiagnostics();
+
     public abstract void carRepair();
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport transport = (Transport) o;
+        return Objects.equals(brand, transport.brand)
+                && Objects.equals(model, transport.model)
+                && Objects.equals(engineVol, transport.engineVol);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBrand, brand, model, engineVol, drivers, mechaniks, sponsors);
+    }
 }
+

@@ -47,4 +47,8 @@ public class Truck extends Transport implements Competing{
     public void carRepair() {
         System.out.println("Грузовик " + getBrand()  + " " + getModel() + " полностью отремонтирован и готов к гонке.");
     }
+
+    public boolean checkDiagnostic() {
+        return Math.random() > 0.7;
+    }
 }

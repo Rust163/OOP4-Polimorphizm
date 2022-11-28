@@ -3,7 +3,7 @@ import Drivers.DriverC;
 import Drivers.DriverD;
 import transport.*;
 
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,6 +12,7 @@ public class Main {
                 "Mustang GT500",
                 7.2,
                 TypeOfBody.COUPE);
+        System.out.println(ford.toString());
         ford.addDriver(new DriverB(
                 "Сергей",
                 "Васильевич",
@@ -184,23 +185,24 @@ public class Main {
                 "C",
                 11);
 
-        //passDiagnostics(ford, dodge, plimuth, nissan, man1, man2, man3, man4, kenworth, international, marmon, peterbilt);
 
+        Set<String> set = new HashSet<>();
+        set.add(String.valueOf(ford));
         List<Transport> transports = List.of(ford, dodge, plimuth, nissan, man1, man2, man3, man4, kenworth, marmon, peterbilt, international);
 
-        TechStation<Car> station = new TechStation<>("Станция техосмотра");
+        TechStation<Transport> station = new TechStation<>("Станция техосмотра");
+        station.addQueue(ford);
+        station.addQueue(nissan);
+        station.addQueue(dodge);
+        station.addQueue(international);
+        station.addQueue(marmon);
+        station.addQueue(kenworth);
         station.addTransport(ford);
-        station.addTransport(dodge);
-        station.addTransport(plimuth);
-        station.addTransport(nissan);
-
-        TechStation<Truck> station1 = new TechStation<>("dihwkxjwkxjwk");
-        station1.addTransport(kenworth);
-        station1.addTransport(peterbilt);
-        station1.addTransport(international);
-        station1.addTransport(marmon);
-        station1.passingMaintenance();
         station.passingMaintenance();
+
+        station.repairAuto();
+
+        TechStation.repairAuto();
     }
 
 
@@ -212,8 +214,6 @@ public class Main {
     public static void borderLine2() {
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
-
-
 
     /*private static void passDiagnostics(Transport... transports) {
         for (Transport transport : transports) {
@@ -231,5 +231,10 @@ public class Main {
             System.out.println(e.getMessage());
         }
     }*/
+
+
+
+
+
 
 }
